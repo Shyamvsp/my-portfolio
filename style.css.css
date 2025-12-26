@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkat Syam Prasad | 3D Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* THE MOVING BACKGROUND */
+        #bg-image {
+            position: fixed;
+            top: -10%; /* Extra space for movement */
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            /* Replace 'background.jpg' with your actual image file */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('c:\Users\dasap\OneDrive\Pictures\Camera Roll\66.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            transition: transform 0.1s ease-out; /* Smooth movement */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 8%;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 45px;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { text-decoration: none; color: white; font-weight: bold; }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 150px 8% 100px;
+            min-height: 100vh;
+        }
+
+        .big-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 90px;
+            line-height: 0.8;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-image img {
+            width: 380px;
+            border-radius: 20px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 50px rgba(0, 210, 255, 0.3);
+        }
+
+        /* GLASS EFFECT CARDS */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 25px;
+            margin-bottom: 30px;
+        }
+
+        .side-by-side {
+            display: flex;
+            gap: 30px;
+            padding: 0 8% 100px;
+        }
+
+        .flex-item { flex: 1; }
+
+        .surprise-btn {
+            background: var(--primary);
+            color: black;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 900;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+
+        .surprise-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bg-image"></div>
+
+    <nav>
+        <div class="logo">VSP</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="big-name">VENKAT<br><span style="color:var(--primary)">SYAM PRASAD</span></h1>
+            <p style="margin-top:20px; font-size: 20px; opacity: 0.8;">Web Developer & Designer</p>
+            <button class="surprise-btn">EXPLORE WORK</button>
+        </div>
+        <div class="hero-image">
+            <img src="profile.jpg" alt="Venkat Syam Prasad">
+        </div>
+    </section>
+
+    <div class="side-by-side">
+        <div class="flex-item glass-card">
+            <h3>Skills</h3>
+            <p style="margin-top:15px"><i class="fab fa-html5"></i> HTML5 (Expert)</p>
+            <p><i class="fab fa-css3-alt"></i> CSS3 (Design)</p>
+            <p><i class="fab fa-js"></i> JavaScript (Interactive)</p>
+        </div>
+        <div class="flex-item glass-card">
+            <h3>Contact Details</h3>
+            <p style="margin-top:15px"><strong>Email:</strong> yourname@gmail.com</p>
+            <p><strong>LinkedIn:</strong> venkat-syam-prasad</p>
+            <p><strong>Father's Name:</strong> [Fill Here]</p>
+        </div>
+    </div>
+
+    <script>
+        // 3D PARALLAX EFFECT
+        const bg = document.getElementById('bg-image');
+        
+        window.addEventListener('mousemove', (e) => {
+            // Get mouse position
+            let x = e.clientX / window.innerWidth;
+            let y = e.clientY / window.innerHeight;
+
+            // Move the background slightly based on mouse (20px range)
+            bg.style.transform = `translate(-${x * 30}px, -${y * 30}px)`;
+        });
+    </script>
+
+</body>
+</html>

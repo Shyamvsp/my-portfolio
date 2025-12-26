@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkat Syam Prasad | 3D Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: var(--white);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* FIXED BACKGROUND ERROR: Use relative path */
+        #bg-image {
+            position: fixed;
+            top: -5%; 
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            /* IMPORTANT: Put '66.jpg' in the same folder as this HTML file */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('66.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 8%;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { text-decoration: none; color: white; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: var(--primary); }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            height: 100vh;
+        }
+
+        .hero-content { flex: 1; }
+
+        .big-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(40px, 8vw, 90px); /* Responsive font size */
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+
+        .hero-image img {
+            width: 350px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .glass-card:hover {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .side-by-side {
+            display: flex;
+            gap: 30px;
+            padding: 50px 8%;
+        }
+
+        .flex-item { flex: 1; }
+
+        .surprise-btn {
+            background: var(--primary);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 900;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: 0.4s;
+        }
+
+        .surprise-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero, .side-by-side { flex-direction: column; text-align: center; }
+            .hero-image img { width: 250px; height: 350px; margin-top: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bg-image"></div>
+
+    <nav>
+        <a href="#" class="logo">VSP</a>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="big-name">VENKAT<br><span style="color:var(--primary)">SYAM PRASAD</span></h1>
+            <p style="margin-top:20px; font-size: 1.2rem; opacity: 0.9;">Professional Web Developer & Creative Designer</p>
+            <button class="surprise-btn">VIEW MY WORK</button>
+        </div>
+        <div class="hero-image">
+            <img src="profile.jpg" alt="Venkat Syam Prasad">
+        </div>
+    </section>
+
+    <div class="side-by-side">
+        <div class="flex-item glass-card" id="skills">
+            <h3 style="color: var(--primary); margin-bottom: 20px;">Technical Skills</h3>
+            <p><i class="fab fa-html5"></i> HTML5 - Semantic Structure</p>
+            <p><i class="fab fa-css3-alt"></i> CSS3 - Responsive Layouts</p>
+            <p><i class="fab fa-js"></i> JavaScript - Interactive Logic</p>
+        </div>
+        <div class="flex-item glass-card" id="contact">
+            <h3 style="color: var(--primary); margin-bottom: 20px;">Contact Me</h3>
+            <p><strong>Email:</strong> venkat@example.com</p>
+            <p><strong>LinkedIn:</strong> venkat-syam-prasad</p>
+            <p><strong>Details:</strong> Venkatesha Shyam Prasad</p>
+        </div>
+    </div>
+
+    <script>
+        const bg = document.getElementById('bg-image');
+        
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
+
+            bg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    </script>
+
+</body>
+</html>
